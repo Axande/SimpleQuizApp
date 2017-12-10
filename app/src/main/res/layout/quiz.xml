@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:gravity="center_horizontal|center_vertical"
+        android:padding="@dimen/_8dp"
+        android:text="@string/title"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="start"
+            android:paddingEnd="0dp"
+            android:layout_marginLeft="@dimen/_16dp"
+            android:paddingStart="@dimen/_8dp"
+            android:text="@string/dummy"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/progress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/dummy"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/lvl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="@dimen/_16dp"
+            android:gravity="end"
+            android:paddingEnd="@dimen/_8dp"
+            android:paddingStart="0dp"
+            android:text="@string/dummy"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+
+        <Button
+            android:id="@+id/back"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hapticFeedbackEnabled="true"
+            android:onClick="btnReset"
+            android:layout_marginLeft="@dimen/_16dp"
+            android:text="@string/back" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/_8dp"
+            android:layout_marginEnd="@dimen/_8dp">
+
+            <ImageView
+                android:id="@+id/hp3"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/heart_size"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_weight="1"
+                android:src="@drawable/heart" />
+
+            <ImageView
+                android:id="@+id/hp2"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/heart_size"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_weight="1"
+                android:src="@drawable/heart" />
+
+            <ImageView
+                android:id="@+id/hp1"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/heart_size"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_weight="1"
+                android:src="@drawable/heart" />
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/help"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="@dimen/_16dp"
+            android:hapticFeedbackEnabled="true"
+            android:onClick="btnHelp"
+            android:text="@string/help" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black" />
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:background="@color/colorPrimaryLight2"
+        android:gravity="center_vertical|center_horizontal"
+        android:paddingLeft="@dimen/_16dp"
+        android:paddingRight="@dimen/_16dp"
+        android:text="@string/dummy"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/size2" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/answer1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorPrimaryLight"
+            android:hapticFeedbackEnabled="true"
+            android:onClick="btnAnswer1"
+            android:paddingStart="@dimen/_8dp"
+            android:paddingEnd="@dimen/_8dp"
+            android:text="@string/dummy"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/black" />
+
+        <Button
+            android:id="@+id/answer2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorPrimaryLight"
+            android:hapticFeedbackEnabled="true"
+            android:onClick="btnAnswer2"
+            android:text="@string/dummy"
+            android:paddingStart="@dimen/_8dp"
+            android:paddingEnd="@dimen/_8dp"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/answer3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorPrimaryLight"
+            android:hapticFeedbackEnabled="true"
+            android:onClick="btnAnswer3"
+            android:text="@string/dummy"
+            android:paddingStart="@dimen/_8dp"
+            android:paddingEnd="@dimen/_8dp"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/black" />
+
+        <Button
+            android:id="@+id/answer4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorPrimaryLight"
+            android:hapticFeedbackEnabled="true"
+            android:onClick="btnAnswer4"
+            android:text="@string/dummy"
+            android:paddingStart="@dimen/_8dp"
+            android:paddingEnd="@dimen/_8dp"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary" />
+
+</LinearLayout>

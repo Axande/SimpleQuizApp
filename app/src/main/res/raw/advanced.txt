@@ -1,0 +1,25 @@
+4
+Which of the following is not as language for computer programming?
+1
+Windows
+PASCAL
+BASIC
+COBOL
+What is the permanent memory built into your computer called?
+4
+RAM
+Floppy
+CPU
+ROM
+Array is a
+1
+linear data structure
+non-linear data structure
+complex data structure
+simple data– structure
+The value 42 in hex is ....
+1
+2a
+4f
+aa
+8b

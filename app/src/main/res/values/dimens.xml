@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="_32dp">32dp</dimen>
+    <dimen name="_16dp">16dp</dimen>
+    <dimen name="_8dp">8dp</dimen>
+    <dimen name="heart_size">52dp</dimen>
+
+    <dimen name="info">40sp</dimen>
+    <dimen name="title">24sp</dimen>
+    <dimen name="size1">20sp</dimen>
+    <dimen name="size2">16sp</dimen>
+    <dimen name="size3">12sp</dimen>
+</resources>

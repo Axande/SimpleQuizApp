@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">QuizApp</string>
+    <string name="title">Quiz app</string>
+    <string name="btn_1">Beginner</string>
+    <string name="btn_2">Advanced</string>
+    <string name="btn_3">Master</string>
+    <string name="text_infoName">What is your name? (max length 10)</string>
+    <string name="text_field_name">Please add your name</string>
+    <string name="check_box">Do you need help?</string>
+    <string name="level_select">Select your level</string>
+    <string name="btn_send"> Start </string>
+    <string name="error_message">Place for errors!</string>
+    <string name="dummy">text</string>
+    <string name="back">Back</string>
+    <string name="help">Help</string>
+
+    <string name="err1">Name cannot be empty!</string>
+    <string name="err2">Select level!</string>
+    <string name="err3">You cannot get any help for level 3!</string>
+    <string name="err_read">Invalid level data!\n</string>
+
+</resources>
