@@ -1,5 +1,8 @@
 package com.example.andrei.quizapp;
 
+import android.content.Intent;
+import android.os.CountDownTimer;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -34,8 +37,36 @@ public class MainActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main); //load the activity_main layout
+        //setContentView(R.layout.activity_main); //load the activity_main layout
+
+        setContentView(R.layout.intro);
+
+
+        new CountDownTimer(2500,500){
+            @Override
+            public void onTick(long millisUntilFinished){}
+
+            @Override
+            public void onFinish(){
+                //set the new Content of your activity
+                MainActivity.this.setContentView(R.layout.activity_main);
+            }
+        }.start();
+
+        /*final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                // TODO: Your application init goes here.
+                Intent mInHome = new Intent(MainActivity.this, MainActivity.class);
+                MainActivity.this.startActivity(mInHome);
+                MainActivity.this.finish();
+            }
+        }, 3000);*/
+
     }
+
+
+
 
 
     @Override
