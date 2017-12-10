@@ -1,4 +1,4 @@
-4
+5
 URL stands for
 3
 Universal Research List
@@ -8,18 +8,24 @@ Uniform Research Locator
 Which of the following is a part of CPU?
 1
 ALU
-Keyboard
-Mouse
-Printer
+Motherboard
+GPU
+Flash drive
 Information travels between components on the mother board through
 4
 flash memory
 CMOS
 cables
 buses
-What will be the value of x?(C++) &#10; int x = 062; &#10; cout << x << '\n';
+What will be the value of x?(C++): int x = 062; cout << x << '\n';
 2
 62
 32
 8
 31
+Which bitwise operator is used to check whether the bit is ON/OFF?
+4
+>>
+^
+<
+&
