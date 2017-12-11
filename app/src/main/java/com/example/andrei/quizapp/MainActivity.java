@@ -1,18 +1,22 @@
 package com.example.andrei.quizapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.Random;
@@ -56,7 +60,6 @@ public class MainActivity extends AppCompatActivity{
         /*final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             public void run() {
-                // TODO: Your application init goes here.
                 Intent mInHome = new Intent(MainActivity.this, MainActivity.class);
                 MainActivity.this.startActivity(mInHome);
                 MainActivity.this.finish();
@@ -158,18 +161,32 @@ public class MainActivity extends AppCompatActivity{
 
         noQuestions = Integer.parseInt(br.nextLine());
 
-        for(int i = 0; i < noQuestions && br.hasNext(); i++){
+        for(int i = 0; i < noQuestions; i++){
             Q[i] = new Questions();
             Q[i].question = br.nextLine();
-            Q[i].correct = Integer.parseInt(br.nextLine());
+            Q[i].cath =  Integer.parseInt(br.nextLine());
 
-            Q[i].answ1 = br.nextLine();
-            Q[i].answ2 = br.nextLine();
-            Q[i].answ3 = br.nextLine();
-            Q[i].answ4 = br.nextLine();
+            if(Q[i].cath == 1){             //if the question is of cathegory 1
+                Q[i].correct[1] = Integer.parseInt(br.nextLine());
 
+                for(int j = 1; j <= 4; j++)
+                    Q[i].answ[j] = br.nextLine();
+
+            } else if(Q[i].cath == 2){      //if the question is of cathegory 2
+                Q[i].correct[0] = Integer.parseInt(br.nextLine());//the number of correct questions
+                for(int j = 1; j <= Q[i].correct[0]; j++) Q[i].correct[j] = 0; //clear the array
+                for(int j = 1; j <= Q[i].correct[0]; j++){                  //add the new answers
+                    Q[i].correct[Integer.parseInt(br.nextLine())] = 1;          //mark that question x is correct
+                }
+                for(int j = 1; j <= 4; j++)
+                    Q[i].answ[j] = br.nextLine();
+
+            } else if(Q[i].cath == 3){      //if the question is of cathegory 3
+                Q[i].answ[0] = br.nextLine();
+            }
             use[i] = false;
         }
+
     }
 
     public void resetContent(){
@@ -223,28 +240,74 @@ public class MainActivity extends AppCompatActivity{
                     " by using "+ (3-hp) + " lives and "+ helpCount + " helps!");
             return;
         }
-        Button btnHelp = findViewById(R.id.help);
-        btnHelp.setEnabled(help);
-        enableAllButtons();
 
+        progressBar(answeredCorrect);
+
+        //reset the answers part
+        LinearLayout L1 = findViewById(R.id.cathegory1);
+        LinearLayout L2 = findViewById(R.id.cathegory2);
+        LinearLayout L3 = findViewById(R.id.cathegory3);
+        L1.setVisibility(View.GONE);
+        L2.setVisibility(View.GONE);
+        L3.setVisibility(View.GONE);
+
+        //display score
         TextView tw = findViewById(R.id.progress);          //update the progress text field
-        tw.setText("" + (answeredCorrect+1) + "/" + noQuestions);
+        //tw.setText("" + (answeredCorrect+1) + "/" + noQuestions);
+        tw.setText("Score: " + 10 * answeredCorrect);
 
         rand = new Random();
         currentQuestion = rand.nextInt(noQuestions);//get a random question from the array
         while(use[currentQuestion] == true) currentQuestion = rand.nextInt(noQuestions);
 
-        TextView question = findViewById(R.id.question);    //get btns ids
-        TextView answ1 = findViewById(R.id.answer1);
-        TextView answ2 = findViewById(R.id.answer2);
-        TextView answ3 = findViewById(R.id.answer3);
-        TextView answ4 = findViewById(R.id.answer4);
 
-        question.setText(Q[currentQuestion].question);      //update buttons with answers
-        answ1.setText(Q[currentQuestion].answ1);
-        answ2.setText(Q[currentQuestion].answ2);
-        answ3.setText(Q[currentQuestion].answ3);
-        answ4.setText(Q[currentQuestion].answ4);
+        //enable button help which might be used previous
+        Button btnHelp = findViewById(R.id.help);
+        if(Q[currentQuestion].cath == 1){
+            btnHelp.setEnabled(help);
+            L1.setVisibility(View.VISIBLE);
+        }
+        else if(Q[currentQuestion].cath == 2){
+            btnHelp.setEnabled(false);
+            L2.setVisibility(View.VISIBLE);
+        } else if(Q[currentQuestion].cath == 3){
+            btnHelp.setEnabled(false);
+            L3.setVisibility(View.VISIBLE);
+        }
+
+        if(Q[currentQuestion].cath == 1){
+            enableAllButtons();
+            TextView question = findViewById(R.id.question);    //get btns ids
+            TextView answ1 = findViewById(R.id.answer1);
+            TextView answ2 = findViewById(R.id.answer2);
+            TextView answ3 = findViewById(R.id.answer3);
+            TextView answ4 = findViewById(R.id.answer4);
+
+            question.setText(Q[currentQuestion].question);      //update buttons with answers
+            answ1.setText(Q[currentQuestion].answ[1]);
+            answ2.setText(Q[currentQuestion].answ[2]);
+            answ3.setText(Q[currentQuestion].answ[3]);
+            answ4.setText(Q[currentQuestion].answ[4]);
+
+        } else if(Q[currentQuestion].cath == 2){
+            TextView question = findViewById(R.id.question);    //get btns ids
+            TextView answ1 = findViewById(R.id.cb_answer1);
+            TextView answ2 = findViewById(R.id.cb_answer2);
+            TextView answ3 = findViewById(R.id.cb_answer3);
+            TextView answ4 = findViewById(R.id.cb_answer4);
+
+            question.setText(Q[currentQuestion].question);      //update buttons with answers
+            answ1.setText(Q[currentQuestion].answ[1]);
+            answ2.setText(Q[currentQuestion].answ[2]);
+            answ3.setText(Q[currentQuestion].answ[3]);
+            answ4.setText(Q[currentQuestion].answ[4]);
+
+        } else if(Q[currentQuestion].cath == 3){
+            TextView question = findViewById(R.id.question);    //get btns ids
+            question.setText(Q[currentQuestion].question);
+            EditText et = findViewById(R.id.edit_text_field_answer);
+            et.setText("");
+        }
         use[currentQuestion] = true;                        //set the current question as used
     }
 
@@ -254,8 +317,8 @@ public class MainActivity extends AppCompatActivity{
         et.setText(name);                                   //keep the same name
     }
 
-    public void btnHelp(View v){                            //when help button is pressed
-        int safe = Q[currentQuestion].correct;
+    public void btnHelp(View v){                            //Works only for cath1 questions
+        int safe = Q[currentQuestion].correct[1];
         int turnOff = 0;
         helpCount++;
 
@@ -283,7 +346,7 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void triggerBtn(int x, boolean enabled){         //when a button is pressed
-        Button btn;
+        RadioButton btn;
 
         if(x == 1) btn = findViewById(R.id.answer1);
         else if(x == 2) btn = findViewById(R.id.answer2);
@@ -295,9 +358,96 @@ public class MainActivity extends AppCompatActivity{
             btn.setTextColor(getResources().getColor(R.color.white));
         }
         else{
+            btn.setChecked(false);
             btn.setTextColor(getResources().getColor(R.color.grey));
         }
         btn.setEnabled(enabled);
+    }
+
+    public void submitCheckBox(View view){
+
+        int[] answ = new int[5];
+        CheckBox answ1 = findViewById(R.id.cb_answer1);
+        CheckBox answ2 = findViewById(R.id.cb_answer2);
+        CheckBox answ3 = findViewById(R.id.cb_answer3);
+        CheckBox answ4 = findViewById(R.id.cb_answer4);
+
+        if(answ1.isChecked()) answ[1] = 1; else answ[1] = 0;
+        if(answ2.isChecked()) answ[2] = 1; else answ[2] = 0;
+        if(answ3.isChecked()) answ[3] = 1; else answ[3] = 0;
+        if(answ4.isChecked()) answ[4] = 1; else answ[4] = 0;
+
+        boolean fail = false;
+        for(int i = 1; i <= 4; i++){
+            if(answ[i] == 0 && Q[currentQuestion].correct[i] == 0);
+            else if(answ[i] != 0 && Q[currentQuestion].correct[i] != 0);
+            else{
+                fail = true;
+            }
+        }
+        if(fail){
+            lose1Hp();
+        }
+        else{
+
+            correctAnswer();
+        }
+    }
+
+    public void submitOpen(View view){ //Works only for cath3
+        EditText et = findViewById(R.id.edit_text_field_answer);
+        if(et.getText().toString().trim().toLowerCase().compareTo(Q[currentQuestion].answ[0].toLowerCase()) == 0) {
+
+            correctAnswer();
+        }
+        else{
+            lose1Hp();
+        }
+    }
+
+    public void btn_active(View view){
+        RadioButton b1 = findViewById(R.id.answer1);
+        RadioButton b2 = findViewById(R.id.answer2);
+        RadioButton b3 = findViewById(R.id.answer3);
+        RadioButton b4 = findViewById(R.id.answer4);
+
+        if(b1.isEnabled()) {
+            b1.setTextColor(getResources().getColor(R.color.white));
+            b1.setChecked(false);
+        }
+        if(b2.isEnabled()) {
+            b2.setTextColor(getResources().getColor(R.color.white));
+            b2.setChecked(false);
+        }
+        if(b3.isEnabled()) {
+            b3.setTextColor(getResources().getColor(R.color.white));
+            b3.setChecked(false);
+        }
+        if(b4.isEnabled()) {
+            b4.setTextColor(getResources().getColor(R.color.white));
+            b4.setChecked(false);
+        }
+
+        switch (view.getId()){
+            case R.id.answer1:
+                b1.setChecked(true);
+                b1.setTextColor(getResources().getColor(R.color.colorAccent));
+                break;
+            case R.id.answer2:
+                b2.setChecked(true);
+                b2.setTextColor(getResources().getColor(R.color.colorAccent));
+                break;
+            case R.id.answer3:
+                b3.setChecked(true);
+                b3.setTextColor(getResources().getColor(R.color.colorAccent));
+                break;
+            case R.id.answer4:
+                b4.setChecked(true);
+                b4.setTextColor(getResources().getColor(R.color.colorAccent));
+                break;
+            default:
+                break;
+        }
     }
 
     public void enableAllButtons(){
@@ -307,60 +457,50 @@ public class MainActivity extends AppCompatActivity{
         triggerBtn(4, true);
     }
 
-    public void btnAnswer1(View v){
-        int answer = Q[currentQuestion].correct;
-        if(answer == 1){
-            answeredCorrect++;
-            progressBar(answeredCorrect);
-            getNextQuestion();
-        }
-        else{
-            triggerBtn(1, false);
-            lose1Hp();
-        }
+    public void correctAnswer(){
+        Context context = getApplicationContext();
+        CharSequence text = "Well done!";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+
+        answeredCorrect++;
+        getNextQuestion();
     }
 
-    public void btnAnswer2(View v){
-        int answer = Q[currentQuestion].correct;
-        if(answer == 2){
-            answeredCorrect++;
-            progressBar(answeredCorrect);
-            getNextQuestion();
-        }
-        else{
-            triggerBtn(2, false);
-            lose1Hp();
-        }
-    }
+    public void submitRadio(View view){
+        RadioButton answ1 = findViewById(R.id.answer1);
+        RadioButton answ2 = findViewById(R.id.answer2);
+        RadioButton answ3 = findViewById(R.id.answer3);
+        RadioButton answ4 = findViewById(R.id.answer4);
+        int answer = Q[currentQuestion].correct[1];
+        int clicked = 0;
 
-    public void btnAnswer3(View v){
-        int answer = Q[currentQuestion].correct;
-        if(answer == 3){
-            answeredCorrect++;
-            progressBar(answeredCorrect);
-            getNextQuestion();
-        }
-        else{
-            triggerBtn(3, false);
-            lose1Hp();
-        }
-    }
+        if(answ1.isChecked()) clicked = 1;
+        else if(answ2.isChecked()) clicked = 2;
+        else if(answ3.isChecked()) clicked = 3;
+        else if(answ4.isChecked()) clicked = 4;
 
-    public void btnAnswer4(View v){
-        int answer = Q[currentQuestion].correct;
-        if(answer == 4){
-            answeredCorrect++;
-            progressBar(answeredCorrect);
-            getNextQuestion();
+        if(answer == clicked) {
+            correctAnswer();
         }
-        else{
-            triggerBtn(4, false);
+        else {
+            //if no other return reached, a wrong answer is given
+            triggerBtn(clicked, false);
             lose1Hp();
         }
     }
 
     public void lose1Hp(){                              //lose 1 hp and update the hearts
         //make a Toast.makeText
+
+        Context context = getApplicationContext();
+        CharSequence text = "Wrong answer!";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
 
         hp--;
         if(hp == 2){
@@ -379,6 +519,10 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.info_page); //change the layout
         TextView info = findViewById(R.id.infoPageText);
         info.setText(s);
+
+        int totalScore = 10*answeredCorrect;
+        TextView info2 = findViewById(R.id.infoPageText2);
+        info2.setText("Total score: "+ totalScore + " out of " + 10 * noQuestions);
     }
 
     public void nextPage(View v){

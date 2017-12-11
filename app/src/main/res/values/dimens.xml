@@ -5,6 +5,7 @@
     <dimen name="_8dp">8dp</dimen>
     <dimen name="heart_size">52dp</dimen>
 
+    <dimen name="huge">60sp</dimen>
     <dimen name="info">40sp</dimen>
     <dimen name="title">24sp</dimen>
     <dimen name="size1">20sp</dimen>

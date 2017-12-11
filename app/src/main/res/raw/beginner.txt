@@ -1,11 +1,9 @@
-6
-1 Byte = … bits?
-2
-4
 8
-2
-32
+1 Byte = … bits?
+3
+8
 To reload a Web page, press the ………………… button.
+1
 4
 Redo
 Reload
@@ -13,31 +11,38 @@ Restore
 Refresh
 ……… function is used to check program correctness.
 1
+1
 compile
 debug
 execute
 read
 Shortcut key to print document is
+1
 3
 Ctrl+F2
 Ctrl+E
 Ctrl+P
 Ctrl+Z
 FTP stands for
-1
+3
 file transfer protocol
-file translate protocol
-file typing protocol
-file transit protocol
 Which of the following can be used to select the entire document?
+1
 1
 Ctrl + A
 Alt + F5
 Shift + A
 Ctrl + K
 1KB = ... bytes
-4
-516
-1000
-124
+3
 1024
+Which of the following is a logical operator(3 answers)?
+2
+3
+1
+2
+3
+!
+&&
+||
+_>

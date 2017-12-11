@@ -10,12 +10,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
+        android:fontFamily="@font/quicksand_regular"
         android:gravity="center_horizontal|center_vertical"
         android:padding="@dimen/_8dp"
         android:text="@string/title"
         android:textAllCaps="true"
         android:textColor="@color/colorAccent"
-        android:textSize="@dimen/title" />
+        android:textSize="@dimen/title"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,6 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_16dp"
             android:layout_weight="1"
+            android:fontFamily="@font/quicksand_regular"
             android:gravity="start"
             android:paddingEnd="0dp"
             android:paddingStart="@dimen/_8dp"
@@ -39,6 +42,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/quicksand_regular"
             android:gravity="center"
             android:text="@string/dummy"
             android:textColor="@color/white" />
@@ -49,6 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/_16dp"
             android:layout_weight="1"
+            android:fontFamily="@font/quicksand_regular"
             android:gravity="end"
             android:paddingEnd="@dimen/_8dp"
             android:paddingStart="0dp"
@@ -68,9 +73,11 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_16dp"
             android:layout_weight="1"
+            android:fontFamily="@font/quicksand_regular"
             android:hapticFeedbackEnabled="true"
             android:onClick="btnReset"
-            android:text="@string/back" />
+            android:text="@string/back"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -112,9 +119,11 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/_16dp"
             android:layout_weight="1"
+            android:fontFamily="@font/quicksand_regular"
             android:hapticFeedbackEnabled="true"
             android:onClick="btnHelp"
-            android:text="@string/help" />
+            android:text="@string/help"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -127,14 +136,16 @@
         android:id="@+id/question"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="4"
+        android:layout_weight="2"
         android:background="@color/colorPrimaryLight2"
+        android:fontFamily="@font/quicksand_regular"
         android:gravity="center_vertical|center_horizontal"
         android:paddingLeft="@dimen/_16dp"
         android:paddingRight="@dimen/_16dp"
         android:text="@string/dummy"
         android:textColor="@color/colorAccent"
-        android:textSize="@dimen/size2" />
+        android:textSize="@dimen/size1"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="match_parent"
@@ -142,64 +153,121 @@
         android:background="@color/black" />
 
     <LinearLayout
+        android:id="@+id/cathegory3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/colorPrimaryLight"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/edit_text_field_answer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_16dp"
+            android:layout_marginStart="@dimen/_16dp"
+            android:layout_weight="5"
+            android:hint="@string/edit_text_quiz" />
 
         <Button
-            android:id="@+id/answer1"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/colorPrimaryLight"
-            android:hapticFeedbackEnabled="true"
-            android:onClick="btnAnswer1"
-            android:paddingEnd="@dimen/_8dp"
-            android:paddingStart="@dimen/_8dp"
-            android:text="@string/dummy"
-            android:textColor="@color/white" />
+            android:layout_weight="0"
+            android:background="@color/colorPrimaryLight2"
+            android:minWidth="@dimen/_16dp"
+            android:onClick="submitOpen"
+            android:padding="@dimen/_16dp"
+            android:text="@string/submit"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/title" />
 
-        <TextView
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="@color/black" />
-
-        <Button
-            android:id="@+id/answer2"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/colorPrimaryLight"
-            android:hapticFeedbackEnabled="true"
-            android:onClick="btnAnswer2"
-            android:paddingEnd="@dimen/_8dp"
-            android:paddingStart="@dimen/_8dp"
-            android:text="@string/dummy"
-            android:textColor="@color/white" />
     </LinearLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/black" />
-
     <LinearLayout
+        android:id="@+id/cathegory2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:background="@color/colorPrimaryLight"
+        android:orientation="horizontal"
+        android:visibility="visible">
 
-        <Button
-            android:id="@+id/answer3"
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/colorPrimaryLight"
-            android:hapticFeedbackEnabled="true"
-            android:onClick="btnAnswer3"
-            android:paddingEnd="@dimen/_8dp"
-            android:paddingStart="@dimen/_8dp"
-            android:text="@string/dummy"
-            android:textColor="@color/white" />
+            android:layout_weight="3"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/cb_answer1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginEnd="@dimen/_16dp"
+                android:layout_marginStart="@dimen/_16dp"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:text="@string/dummy"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black" />
+
+            <CheckBox
+                android:id="@+id/cb_answer3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginEnd="@dimen/_16dp"
+                android:layout_marginStart="@dimen/_16dp"
+                android:layout_weight="1"
+                android:text="@string/dummy"
+                android:textColor="@color/white"
+                android:textAllCaps="true" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/black" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/cb_answer2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginEnd="@dimen/_16dp"
+                android:layout_marginStart="@dimen/_16dp"
+                android:layout_weight="1"
+                android:text="@string/dummy"
+                android:textColor="@color/white"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black" />
+
+            <CheckBox
+                android:id="@+id/cb_answer4"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginEnd="@dimen/_16dp"
+                android:layout_marginStart="@dimen/_16dp"
+                android:layout_weight="1"
+                android:text="@string/dummy"
+                android:textColor="@color/white"
+                android:textAllCaps="true" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="1dp"
@@ -207,17 +275,137 @@
             android:background="@color/black" />
 
         <Button
-            android:id="@+id/answer4"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            android:background="@color/colorPrimaryLight2"
+            android:minWidth="@dimen/_16dp"
+            android:onClick="submitCheckBox"
+            android:padding="@dimen/_16dp"
+            android:text="@string/submit"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/title" />
+
+    </LinearLayout>
+
+
+    //buttons layout
+    <LinearLayout
+        android:id="@+id/cathegory1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/colorPrimaryLight"
-            android:hapticFeedbackEnabled="true"
-            android:onClick="btnAnswer4"
-            android:paddingEnd="@dimen/_8dp"
-            android:paddingStart="@dimen/_8dp"
-            android:text="@string/dummy"
-            android:textColor="@color/white" />
+            android:orientation="vertical">
+
+
+            <RadioButton
+                android:id="@+id/answer1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:button="@null"
+                android:background="@color/colorPrimaryLight"
+                android:fontFamily="@font/quicksand_regular"
+                android:paddingEnd="@dimen/_16dp"
+                android:paddingStart="@dimen/_16dp"
+                android:text="@string/dummy"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:onClick="btn_active"
+                android:textColorHighlight="@color/colorAccent" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black" />
+
+            <RadioButton
+                android:id="@+id/answer3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/colorPrimaryLight"
+                android:fontFamily="@font/quicksand_regular"
+                android:paddingEnd="@dimen/_16dp"
+                android:button="@null"
+                android:paddingStart="@dimen/_16dp"
+                android:text="@string/dummy"
+                android:onClick="btn_active"
+                android:textAllCaps="true"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/black" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/answer2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/colorPrimaryLight"
+                android:fontFamily="@font/quicksand_regular"
+                android:paddingEnd="@dimen/_16dp"
+                android:paddingStart="@dimen/_16dp"
+                android:button="@null"
+                android:text="@string/dummy"
+                android:onClick="btn_active"
+                android:textAllCaps="true"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black" />
+
+            <RadioButton
+                android:id="@+id/answer4"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/colorPrimaryLight"
+                android:fontFamily="@font/quicksand_regular"
+                android:paddingEnd="@dimen/_16dp"
+                android:paddingStart="@dimen/_16dp"
+                android:text="@string/dummy"
+                android:button="@null"
+                android:onClick="btn_active"
+                android:textAllCaps="true"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/black" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            android:background="@color/colorPrimary"
+            android:minWidth="@dimen/_16dp"
+            android:onClick="submitRadio"
+            android:padding="@dimen/_16dp"
+            android:text="@string/submit"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/title" />
+
     </LinearLayout>
 
     <TextView
@@ -230,6 +418,6 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary" />
+        android:background="@color/colorPrimaryLight2" />
 
 </LinearLayout>

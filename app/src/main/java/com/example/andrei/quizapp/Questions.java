@@ -6,11 +6,9 @@ package com.example.andrei.quizapp;
 
 public class Questions {
     public String question = "";
-    public int correct = 0;
-    public String answ1 = "";
-    public String answ2 = "";
-    public String answ3 = "";
-    public String answ4 = "";
+    public int[] correct = new int[5]; //position 0 is for counting how many correct answers are
+    public String[] answ = new String[5];
+    public int cath = 0; //cathegory
 
     public void Questions() {
 

@@ -14,6 +14,8 @@
     <string name="back">Back</string>
     <string name="help">Help</string>
     <string name="intro">Welcome to </string>
+    <string name="submit">></string>
+    <string name="edit_text_quiz">Please introduce your answer</string>
 
     <string name="author">Andrei Pintilie</string>
 

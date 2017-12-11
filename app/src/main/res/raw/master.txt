@@ -1,31 +1,26 @@
 5
 URL stands for
 3
-Universal Research List
-Universal Resource List
 Uniform Resource Locator
-Uniform Research Locator
-Which of the following is a part of CPU?
+Which of the following are part of CPU? (2 answers)
+2
+2
 1
+4
 ALU
 Motherboard
 GPU
-Flash drive
-Information travels between components on the mother board through
-4
-flash memory
-CMOS
-cables
+Control Unit
+Information travels between components on the mother board through ...(plural)
+3
 buses
 What will be the value of x?(C++): int x = 062; cout << x << '\n';
+1
 2
 62
 32
 8
 31
 Which bitwise operator is used to check whether the bit is ON/OFF?
-4
->>
-^
-<
+3
 &
