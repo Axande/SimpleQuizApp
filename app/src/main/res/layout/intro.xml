@@ -34,7 +34,6 @@
             android:textAllCaps="true"
             android:textColor="@color/colorAccent"
             android:textSize="@dimen/info" />
-
     </LinearLayout>
 
     <TextView

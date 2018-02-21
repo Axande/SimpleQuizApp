@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity{
 
         setContentView(R.layout.intro);
 
-
         new CountDownTimer(2500,500){
             @Override
             public void onTick(long millisUntilFinished){}
@@ -56,21 +55,7 @@ public class MainActivity extends AppCompatActivity{
                 MainActivity.this.setContentView(R.layout.activity_main);
             }
         }.start();
-
-        /*final Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            public void run() {
-                Intent mInHome = new Intent(MainActivity.this, MainActivity.class);
-                MainActivity.this.startActivity(mInHome);
-                MainActivity.this.finish();
-            }
-        }, 3000);*/
-
     }
-
-
-
-
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState){
@@ -84,7 +69,6 @@ public class MainActivity extends AppCompatActivity{
         super.onRestoreInstanceState(savedInstanceState);
 
     }
-
 
     public void send(View view){    //when the start button is pressed in activity_main.xml
         boolean fail = false;
@@ -158,7 +142,6 @@ public class MainActivity extends AppCompatActivity{
             return;
         }
 
-
         noQuestions = Integer.parseInt(br.nextLine());
 
         for(int i = 0; i < noQuestions; i++){
@@ -186,7 +169,6 @@ public class MainActivity extends AppCompatActivity{
             }
             use[i] = false;
         }
-
     }
 
     public void resetContent(){
@@ -259,7 +241,6 @@ public class MainActivity extends AppCompatActivity{
         rand = new Random();
         currentQuestion = rand.nextInt(noQuestions);//get a random question from the array
         while(use[currentQuestion] == true) currentQuestion = rand.nextInt(noQuestions);
-
 
         //enable button help which might be used previous
         Button btnHelp = findViewById(R.id.help);
@@ -365,7 +346,6 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void submitCheckBox(View view){
-
         int[] answ = new int[5];
         CheckBox answ1 = findViewById(R.id.cb_answer1);
         CheckBox answ2 = findViewById(R.id.cb_answer2);
@@ -397,7 +377,6 @@ public class MainActivity extends AppCompatActivity{
     public void submitOpen(View view){ //Works only for cath3
         EditText et = findViewById(R.id.edit_text_field_answer);
         if(et.getText().toString().trim().toLowerCase().compareTo(Q[currentQuestion].answ[0].toLowerCase()) == 0) {
-
             correctAnswer();
         }
         else{
@@ -458,14 +437,15 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void correctAnswer(){
+        answeredCorrect++;
+
         Context context = getApplicationContext();
-        CharSequence text = "Well done!";
+        CharSequence text = "Well done! " + answeredCorrect + " questions answered correct so far!";
         int duration = Toast.LENGTH_SHORT;
 
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
 
-        answeredCorrect++;
         getNextQuestion();
     }
 
@@ -516,6 +496,10 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void infoScreen(String s){                  //display a message on the end game screen
+
+        Toast toast = Toast.makeText(getApplicationContext(), "You solved " + answeredCorrect +" qustions", Toast.LENGTH_SHORT);
+        toast.show();
+
         setContentView(R.layout.info_page); //change the layout
         TextView info = findViewById(R.id.infoPageText);
         info.setText(s);
